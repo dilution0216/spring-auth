@@ -36,16 +36,4 @@ public class UserController {
         return "redirect:/api/user/login-page";
 
     }
-
-
-    @PostMapping("/user/login")
-    public String login(LoginRequestDto requestDto, HttpServletResponse res) {
-        try {
-            userService.login(requestDto, res);
-        } catch (Exception e) {
-            return "redirect:/api/user/login-page?error"; // 로그인 에러가 생길경우 query 처럼 ?error 로 해준다.
-        }
-
-        return "redirect:/";
-    }
 }
